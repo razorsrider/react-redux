@@ -19,7 +19,7 @@ class render_buttons extends React.Component {
 
 // export default render_buttons;
 const mapStateToProps = (state) => {
-    return {data: state.selectedSong, selectors: state.local_selectors};
+    return {data: state.fetched_data, selectors: state.local_selectors};
 };
 
 export default connect(mapStateToProps, {MarketFilterClick: MarketFilterClick})(render_buttons);

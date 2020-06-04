@@ -19,21 +19,21 @@ const App = () => {
         <div>
             <div className='container'>
                 <div className='row'>
-                    <div className='col-xl-12 col-lg-12 col-sm-12 col-md-12 col-12 col-12'>
+                    <div className='col-xl-12 col-lg-12 col-sm-12 col-md-12 col-12'>
                         <Header/>
                     </div>
                 </div>
 
                 <div className='row'>
                     <Router history={createBrowserHistory()}>
-                        <div className='col-xl-2 col-lg-2 col-sm-12 col-md-12 col-12 col-12'
+                        <div className='col-xl-2 col-lg-2 col-sm-12 col-md-12 col-12'
                              style={{marginTop: '10px'}}>
                             <Navigation/>
                         </div>
-                        <div className='col-xl-10 col-lg-10 col-sm-12 col-md-12 col-12 col-12'>
+                        <div className='col-xl-10 col-lg-10 col-sm-12 col-md-12 col-12'>
 
                             <Switch>
-                                <Route path='/' exact component={main}/>
+                                <Route path='/react-redux/' exact component={main}/>
                                 <Route path='/react-redux/data' exact component={content}/>
                                 <Route path='/react-redux/about' exact component={about}/>
                             </Switch>

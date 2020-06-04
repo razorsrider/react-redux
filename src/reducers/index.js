@@ -39,6 +39,7 @@ const fetched_data = (data_by_pairs = null, action) => {
     if (action.type === 'NEW_DATA') {
         result.pairs = action.payload.data;
         result.market_filter_list = action.payload.market_filter_list;
+        result.time_of_fetch = action.payload.time_of_fetch;
         return result;
     }
 
@@ -48,5 +49,5 @@ const fetched_data = (data_by_pairs = null, action) => {
 
 export default combineReducers({
     local_selectors: local_selectors,
-    selectedSong: fetched_data
+    fetched_data: fetched_data
 });

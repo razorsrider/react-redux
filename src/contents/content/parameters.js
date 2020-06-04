@@ -22,7 +22,7 @@ class retrieved_info extends React.Component {
 
 
 const mapStateToProps = (state) => {
-    return {data: state.selectedSong, selectors: state.local_selectors};
+    return {data: state.fetched_data, selectors: state.local_selectors};
 };
 
 // export default content;

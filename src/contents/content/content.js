@@ -1,11 +1,11 @@
 import React from 'react';
 import List from "./pair_list";
-import MarketFilter from "./marketFilter";
 
 import {connect} from 'react-redux';
 import {FetchData} from "../../actions";
 import {MarketFilterClick} from "../../actions";
 import Parameters from './parameters';
+import Render_buttons from "./render_buttons";
 
 const Showed_values = (props) => {
     if (props.value) {
@@ -20,42 +20,40 @@ const Showed_values = (props) => {
 };
 
 const Show_raw_info = (props) => {
-    if (Object.keys(props.value).length) {
-        return (
-            <div style={{textAlign: 'center', margin: '20px'}}>
 
-                <p>
-                    <button className="btn btn-warning" type="button" data-toggle="collapse"
-                            data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
-                            onClick={props.onClick}>
-                        Show raw JSON data
-                    </button>
-                </p>
+    return (
+        <div style={{textAlign: 'center', margin: '20px'}}>
 
-                <div className="collapse" id="collapseExample">
-                    <div className="card card-body">
-                        {JSON.stringify(props.value)}
-                    </div>
+            <p>
+                <button className="btn btn-warning" type="button" data-toggle="collapse"
+                        data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
+                        onClick={props.onClick}>
+                    Show raw JSON data
+                </button>
+            </p>
+
+            <div className="collapse" id="collapseExample">
+                <div className="card card-body">
+                    {JSON.stringify(props.value)}
                 </div>
-
             </div>
-        )
-    } else {
-        return null
-    }
+
+        </div>
+    )
+
 };
 
 class content extends React.Component {
-    state = {
-        pairs: [],
-        pair_parameters: [],
-        fetching_time: '',
-        selected_parameter: 0,
-        market_filter_list: [],
-        market_filter_selected: 0,
-        showed_pairs: 0,
-        SHOW_RAW: false
-    };
+    // state = {
+    //     pairs: [],
+    //     pair_parameters: [],
+    //     fetching_time: '',
+    //     selected_parameter: 0,
+    //     market_filter_list: [],
+    //     market_filter_selected: 0,
+    //     showed_pairs: 0,
+    //     SHOW_RAW: false
+    // };
 
     // retrieveSubmit = async arg => {
     //     const response = await axios.get('https://poloniex.com/public?command=returnTicker'),
@@ -77,13 +75,18 @@ class content extends React.Component {
     //     });
     // };
 
+    source_click() {
+        console.log('clc');
+        return null;
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
-        const list_el_count = document.getElementsByClassName('list-group')[0].children.length;
-        if (this.state.showed_pairs !== list_el_count) {
-            this.setState({
-                showed_pairs: list_el_count
-            })
-        }
+        // const list_el_count = document.getElementsByClassName('list-group')[0].children.length;
+        // if (this.state.showed_pairs !== list_el_count) {
+        //     this.setState({
+        //         showed_pairs: list_el_count
+        //     })
+        // }
     }
 
     render() {
@@ -101,13 +104,15 @@ class content extends React.Component {
 
                         <p style={{textAlign: 'center', margin: 10}}>Last
                             update: {" "}
-                            <b>{String(new Date())}</b>
+                            <b>
+                                {source.time_of_fetch}
+                            </b>
                         </p>
 
                         <button type="button" className="btn btn-success btn-block " id='fetch'
                                 onClick={() => this.props.selectSong()}
                         >
-                            {Object.keys(source.pairs).length === 0 ? 'FETCH' : 'RENEW'}
+                            RENEW
                         </button>
 
                         <p style={{
@@ -119,12 +124,22 @@ class content extends React.Component {
                             {" "} pairs
                         </p>
 
-                        <Show_raw_info value={source.pairs}
-                            // onClick={() => this.state.SHOW_RAW ? this.setState({SHOW_RAW: false}) : this.setState({SHOW_RAW: true})}
-                        />
 
-
-
+                        <div style={{textAlign: 'center', margin: '20px'}}>
+                            <p>
+                                <button className="btn btn-warning" type="button" data-toggle="collapse"
+                                        data-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample"
+                                        onClick={null}>
+                                    Show raw JSON data
+                                </button>
+                            </p>
+                            <div className="collapse" id="collapseExample">
+                                <div className="card card-body">
+                                    {JSON.stringify(source)}
+                                </div>
+                            </div>
+                        </div>
 
 
                         <div className="card border-secondary mb-3" style={{textAlign: 'center'}}>
@@ -139,16 +154,15 @@ class content extends React.Component {
                         </div>
 
 
+                        <div className="card border-secondary mb-3" style={{textAlign: 'center'}}>
+                            <div className="card-header">
+                                <div style={{textAlign: 'center'}}><b>Choose market</b></div>
+                            </div>
+                            <div className="card-body text-secondary">
+                                <Render_buttons/>
+                            </div>
+                        </div>
 
-
-
-
-
-                        <MarketFilter
-                            // onClick={(e) => e > -1 ? this.setState({market_filter_selected: e}) : null}/>
-                            //           onClick={this.some_act()}/>
-                            //           onClick={this.props.MarketFilterClick('asd')}
-                        />
 
                         <Showed_values value={selectors.showed_pairs}/>
 
@@ -177,7 +191,7 @@ class content extends React.Component {
                         <button type="button" className="btn btn-success btn-block " id='fetch'
                                 onClick={() => this.props.selectSong()}
                         >
-                            {Object.keys(this.state.pairs).length === 0 ? 'FETCH' : 'RENEW'}
+                            FETCH
                         </button>
 
                         <p style={{
@@ -198,7 +212,7 @@ class content extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {data: state.selectedSong, selectors: state.local_selectors};
+    return {data: state.fetched_data, selectors: state.local_selectors};
 };
 
 // export default content;

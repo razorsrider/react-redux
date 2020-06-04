@@ -22,7 +22,7 @@ const main = () => {
                     <p/>
                     <h5>Source code of this application you can find by address
                         <p>
-                            <a href='https://github.com/razorsrider/react-test'>
+                            <a href='https://github.com/razorsrider/react-redux'>
                                 https://github.com/razorsrider/react-redux
                             </a>
                         </p>

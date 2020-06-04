@@ -16,6 +16,8 @@ export const FetchData = () => {
         }
 
         response['market_filter_list'] = bank;
+        response['time_of_fetch'] = String(new Date());
+
 
         dispatch({type: 'NEW_DATA', payload: response});
     }
