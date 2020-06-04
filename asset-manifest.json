@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/react-redux/static/js/main.11b09d8e.chunk.js",
-    "main.js.map": "/react-redux/static/js/main.11b09d8e.chunk.js.map",
+    "main.js": "/react-redux/static/js/main.c862f044.chunk.js",
+    "main.js.map": "/react-redux/static/js/main.c862f044.chunk.js.map",
     "runtime-main.js": "/react-redux/static/js/runtime-main.4326449f.js",
     "runtime-main.js.map": "/react-redux/static/js/runtime-main.4326449f.js.map",
-    "static/js/2.24100ced.chunk.js": "/react-redux/static/js/2.24100ced.chunk.js",
-    "static/js/2.24100ced.chunk.js.map": "/react-redux/static/js/2.24100ced.chunk.js.map",
+    "static/js/2.3ab60b78.chunk.js": "/react-redux/static/js/2.3ab60b78.chunk.js",
+    "static/js/2.3ab60b78.chunk.js.map": "/react-redux/static/js/2.3ab60b78.chunk.js.map",
     "index.html": "/react-redux/index.html",
-    "precache-manifest.82d291959b597bf3efcf1e59dc8396b8.js": "/react-redux/precache-manifest.82d291959b597bf3efcf1e59dc8396b8.js",
+    "precache-manifest.e3117937a7f3f752dab127f11ec02424.js": "/react-redux/precache-manifest.e3117937a7f3f752dab127f11ec02424.js",
     "service-worker.js": "/react-redux/service-worker.js",
-    "static/js/2.24100ced.chunk.js.LICENSE.txt": "/react-redux/static/js/2.24100ced.chunk.js.LICENSE.txt"
+    "static/js/2.3ab60b78.chunk.js.LICENSE.txt": "/react-redux/static/js/2.3ab60b78.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4326449f.js",
-    "static/js/2.24100ced.chunk.js",
-    "static/js/main.11b09d8e.chunk.js"
+    "static/js/2.3ab60b78.chunk.js",
+    "static/js/main.c862f044.chunk.js"
   ]
 }
